@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Evergreen Hotel in Ogbor Hill, Aba offers comfortable accommodation and essential amenities. Contact the hotel directly for rates and availability.">
+    <title>Evergreen Hotel - Ogbor Hill, Aba</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: #2d5a27;
+            color: white;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .location {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        .active {
+            border-bottom: 2px solid white;
+        }
+        
+        /* Main Content */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: #2d5a27;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #1e3e1a;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+        }
+        
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin: 2rem 0;
+            color: #2d5a27;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #2d5a27;
+            margin: 0.5rem auto;
+        }
+        
+        /* Rooms Page */
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .room-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .room-image {
+            height: 200px;
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .room-image::after {
+            content: 'Stock image for representation';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem;
+            text-align: center;
+        }
+        
+        .room-content {
+            padding: 1.5rem;
+        }
+        
+        .room-content h3 {
+            color: #2d5a27;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-note {
+            color: #666;
+            font-style: italic;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+        
+        /* Amenities Page */
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .amenity-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .amenity-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d5a27;
+        }
+        
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-info {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .contact-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            color: #2d5a27;
+            font-size: 1.2rem;
+            min-width: 24px;
+        }
+        
+        .map-container {
+            height: 400px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2d5a27;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .footer-disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div>
+                <div class="logo">Evergreen Hotel</div>
+                <div class="location">Ogbor Hill, Aba</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#rooms">Rooms & Rates</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#contact">Contact & Location</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Home Page Content -->
+        <div id="home" class="page-content" style="display: block;">
+            <div class="hero">
+                <h1>Welcome to Evergreen Hotel</h1>
+                <p>A comfortable stay in the heart of Ogbor Hill, Aba. Experience quality hospitality with essential amenities for business and leisure travelers.</p>
+                <div class="cta-buttons">
+                    <a href="tel:08063461000" class="btn">Call Now: 0806 346 1000</a>
+                    <a href="https://wa.me/2348063461000" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Booking</a>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Experience Comfort in Aba</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                Evergreen Hotel offers comfortable accommodation in Ogbor Hill, Aba. We provide essential amenities for a pleasant stay whether you're visiting for business or leisure. Contact us directly for availability and rates.
+            </p>
+        </div>
+        
+        <!-- Rooms Page Content -->
+        <div id="rooms" class="page-content" style="display: none;">
+            <h1 class="section-title">Rooms & Rates</h1>
+            
+            <div class="room-grid">
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="room-content">
+                        <h3>Standard Room</h3>
+                        <p>Comfortable room with essential amenities for a restful stay. Suitable for solo travelers or couples.</p>
+                        <div class="price-note">Contact hotel for current rates and availability</div>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="room-content">
+                        <h3>Deluxe Room</h3>
+                        <p>Spacious room with additional comfort features. Perfect for extended stays or additional space needs.</p>
+                        <div class="price-note">Contact hotel for current rates and availability</div>
+                    </div>
+                </div>
+                
+                <div class="room-card">
+                    <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="room-content">
+                        <h3>Executive Room</h3>
+                        <p>Enhanced room with premium features for business travelers or those seeking extra comfort.</p>
+                        <div class="price-note">Contact hotel for current rates and availability</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#contact" class="btn">Contact for Rates & Availability</a>
+            </div>
+        </div>
+        
+        <!-- Amenities Page Content -->
+        <div id="amenities" class="page-content" style="display: none;">
+            <h1 class="section-title">Hotel Amenities</h1>
+            
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <div class="amenity-icon">🛏️</div>
+                    <h3>Comfortable Rooms</h3>
+                    <p>Well-appointed rooms designed for rest and relaxation</p>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">🅿️</div>
+                    <h3>On-site Parking</h3>
+                    <p>Secure parking available for guests</p>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">🍽️</div>
+                    <h3>On-site Food Service</h3>
+                    <p>Food options available on premises</p>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">💡</div>
+                    <h3>Reliable Electricity</h3>
+                    <p>Consistent power supply for guest comfort</p>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">👮</div>
+                    <h3>Security</h3>
+                    <p>Safe and secure environment for guests</p>
+                </div>
+                
+                <div class="amenity-item">
+                    <div class="amenity-icon">✨</div>
+                    <h3>Clean Environment</h3>
+                    <p>Well-maintained premises and facilities</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Page Content -->
+        <div id="contact" class="page-content" style="display: none;">
+            <h1 class="section-title">Contact & Location</h1>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 style="color: #2d5a27; margin-bottom: 1.5rem;">Get in Touch</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>6 Umuola Rd, Ogbor Hill, Aba, Abia State</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h3>Phone Number</h3>
+                            <p>0806 346 1000</p>
+                            <a href="tel:08063461000" class="btn" style="padding: 0.5rem 1rem; margin-top: 0.5rem; display: inline-block;">Call Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>0806 346 1000</p>
+                            <a href="https://wa.me/2348063461000" class="btn btn-whatsapp" style="padding: 0.5rem 1rem; margin-top: 0.5rem; display: inline-block;" target="_blank" rel="noopener">Message on WhatsApp</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">ℹ️</div>
+                        <div>
+                            <h3>Booking Information</h3>
+                            <p><em>Contact the hotel directly for current rates and availability</em></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps?q=6%20Umuola%20Rd,%20Ogbor%20Hill,%20Aba&output=embed"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        loading="lazy"
+                        title="Evergreen Hotel Location on Google Maps"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Evergreen Hotel © <span id="current-year">2024</span></p>
+        <p>6 Umuola Rd, Ogbor Hill, Aba, Abia State</p>
+        <p>Phone: 0806 346 1000</p>
+        
+        <div class="footer-disclaimer">
+            <p><strong>Demo website concept for Evergreen Hotel. This is not the official website.</strong></p>
+            <p>This is a demonstration website created to showcase a potential online presence. For official information, bookings, and current rates, please contact the hotel directly.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Navigation function
+            function showPage(pageId) {
+                // Hide all pages
+                document.querySelectorAll('.page-content').forEach(div => {
+                    div.style.display = 'none';
+                });
+                
+                // Show selected page
+                const pageElement = document.getElementById(pageId);
+                if (pageElement) {
+                    pageElement.style.display = 'block';
+                }
+                
+                // Update active nav link
+                document.querySelectorAll('nav a').forEach(a => {
+                    a.classList.remove('active');
+                });
+                
+                // Update page title
+                const pageTitles = {
+                    'home': 'Evergreen Hotel - Ogbor Hill, Aba',
+                    'rooms': 'Rooms & Rates - Evergreen Hotel',
+                    'amenities': 'Amenities - Evergreen Hotel',
+                    'contact': 'Contact & Location - Evergreen Hotel'
+                };
+                document.title = pageTitles[pageId] || 'Evergreen Hotel';
+                
+                // Set URL hash without scrolling
+                history.replaceState(null, null, '#' + pageId);
+            }
+            
+            // Navigation click handlers
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', '');
+                    showPage(pageId);
+                    this.classList.add('active');
+                });
+            });
+            
+            // Handle initial page load from URL hash
+            function loadPageFromHash() {
+                const hash = window.location.hash.replace('#', '');
+                const validPages = ['home', 'rooms', 'amenities', 'contact'];
+                
+                if (validPages.includes(hash)) {
+                    showPage(hash);
+                    // Update active nav for the loaded page
+                    document.querySelectorAll('nav a').forEach(a => {
+                        a.classList.remove('active');
+                        if (a.getAttribute('href') === '#' + hash) {
+                            a.classList.add('active');
+                        }
+                    });
+                } else {
+                    // Default to home page
+                    showPage('home');
+                    document.querySelector('a[href="#home"]').classList.add('active');
+                }
+            }
+            
+            // Handle browser back/forward buttons
+            window.addEventListener('hashchange', loadPageFromHash);
+            
+            // Initial page load
+            loadPageFromHash();
+        });
+    </script>
+</body>
+</html>
